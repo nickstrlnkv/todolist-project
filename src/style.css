@@ -1,3 +1,59 @@
-h1 {
-    color: red;
+@font-face {
+    font-family: "SFProText-Regular";
+    src: url('./SFProText-Regular.ttf'), format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Light';
+    src: url('./SFProText-Light.ttf'), format('ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Medium';
+    src: url('./SFProText-Medium.ttf'), format('ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Semibold';
+    src: url('./SFProText-Semibold.ttf'), format('ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Bold';
+    src: url('./SFProText-Bold.ttf'), format('ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --nav-background-color: #F8FAFB;
+}
+
+.container {
+    font-family: 'SFProText-Regular';
+    font-weight: 400;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+
+.container--navside {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: var(--nav-background-color);
+    height: 100vh;
+}
+
+.container--content {
+    grid-column: 2;
+    grid-row: 2;
 }
