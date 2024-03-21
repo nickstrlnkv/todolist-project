@@ -47,10 +47,35 @@
 
 
 .container--navside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     grid-column: 1;
     grid-row: 2;
     background-color: var(--nav-background-color);
     height: 100vh;
+}
+
+.container--navside--projects-title {
+    color: #202020;
+}
+
+.container--navside--project-button {
+    border: 0;
+    background-color: var(--nav-background-color);
+    transition-duration: 0.2s;
+}
+
+.container--navside--project-button:hover {
+    border: 0;
+    background-color: #ebebeb;
+    transition-duration: 0.2s;
+}
+
+.container--navside--project-button:active {
+    background-color: #6e6e6e;
+    transition-duration: 0.2s;
 }
 
 .container--content {
