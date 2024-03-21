@@ -35,6 +35,8 @@
 
 :root {
     --nav-background-color: #F8FAFB;
+    --content-background-color: #e2e8f0;
+    --task-border-color: #cbd5e1;
 }
 
 .container {
@@ -81,4 +83,50 @@
 .container--content {
     grid-column: 2;
     grid-row: 2;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding-right: 20px;
+    padding-left: 20px;
+    background: var(--content-background-color);
+}
+
+.container--content--task--title {
+    font-family: 'SFProText-Bold';
+    font-weight: 700;
+    font-size: 1.3rem;
+    grid-row: 1;
+}
+
+.container--content--task--description, .container--content--task--date {
+    font-family: 'SFProText-Light';
+    font-weight: 300px;
+    font-size: 1.2rem;
+}
+
+.container--content--task--description {
+    grid-row: 2;
+}
+
+.container--content--task--date {
+    font-size: 1rem;
+    grid-row: 3;
+}
+
+.container--content--task {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    border: solid var(--task-border-color);
+    border-radius: 1rem;
+}
+
+.container--content--task--checkbox {
+    grid-row: 3;
+    height: 2rem;
+    width: 2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }

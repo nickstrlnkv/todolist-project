@@ -20,14 +20,11 @@
     },
     {
         "name": "Money project",
-        "tasks": [
-            {
-                "id": 2,
-                "title": "Pay a car bill",
-                "description":"go to billing service and pay",
-                "dueDate": "2024-03-28",
-                "priority": 2
-            }
-        ]
+        "tasks": {
+            "title": "Pay a car bill",
+            "description":"go to billing service and pay",
+            "dueDate": "2024-03-28",
+            "priority": 2
+        }
     }
 ]
