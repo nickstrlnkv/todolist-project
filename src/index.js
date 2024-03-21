@@ -5,6 +5,7 @@ import projectsJSON from './projects.json';
 
 const navigationDiv = document.querySelector('.container--navside');
 const contentDiv = document.querySelector('.container--content');
+const containerDiv = document.querySelector('.container');
 
 fetch(projectsJSON) // замените 'file.json' на путь к вашему файлу
     .then(response => response.json())
@@ -28,6 +29,18 @@ function doSomethingWithData(data) {
 
          // загрузка задач на поле
          projectButton.addEventListener('click', () => {
+
+            // удаляем задачи, которые есть на поле
+            const prevTaskContainer = document.querySelector('.container--content');
+            console.log(prevTaskContainer);
+            containerDiv.removeChild(prevTaskContainer);
+
+            // добавляем новое поле для задач
+            const newTaskContainer = document.createElement('div');
+            newTaskContainer.classList.add('container--content');
+            containerDiv.appendChild(newTaskContainer);
+
+            // добавляем новые задачи
             for (let j = 0; j < Object.keys(data[i].tasks).length; j++) {
 
                 console.log(data[i].tasks[j]);
@@ -63,7 +76,7 @@ function doSomethingWithData(data) {
                 taskContainer.appendChild(taskCheckboxElement);
 
                 // добавляем в контент контейнер
-                contentDiv.appendChild(taskContainer)
+                newTaskContainer.appendChild(taskContainer)
             }
 
         })

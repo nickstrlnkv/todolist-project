@@ -120,6 +120,7 @@
     grid-template-rows: 1fr 1fr 1fr;
     border: solid var(--task-border-color);
     border-radius: 1rem;
+    margin: 5px;
 }
 
 .container--content--task--checkbox {
