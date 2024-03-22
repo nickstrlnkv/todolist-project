@@ -1,6 +1,7 @@
 import _, { divide } from 'lodash';
 import './style.css';
 import 'normalize.css';
+import 'animate.css';
 import projectsJSON from './projects.json';
 
 const navigationDiv = document.querySelector('.container--navside');
@@ -25,6 +26,7 @@ function doSomethingWithData(data) {
     for (let i = 0; i < Object.keys(data).length; i++) {
         const projectButton = document.createElement('button');
         projectButton.classList.add('container--navside--project-button');
+        
 
         projectButton.textContent = data[i].name;
         navigationDiv.appendChild(projectButton);
@@ -34,7 +36,7 @@ function doSomethingWithData(data) {
 
             // удаляем задачи, которые есть на поле
             const prevTaskContainer = document.querySelector('.container--content');
-            console.log(prevTaskContainer);
+            //console.log(prevTaskContainer);
             containerDiv.removeChild(prevTaskContainer);
 
             // добавляем новое поле для задач
@@ -45,10 +47,14 @@ function doSomethingWithData(data) {
             // добавляем новые задачи
             for (let j = 0; j < Object.keys(data[i].tasks).length; j++) {
 
-                console.log(data[i].tasks[j]);
+                //console.log(data[i].tasks[j]);
                 // создаем див-контейнер для задачи
                 const taskContainer = document.createElement('div');
                 taskContainer.classList.add("container--content--task");
+                
+                // добавление анимации для див-конейнера задач
+                taskContainer.classList.add("animate__animated");
+                taskContainer.classList.add("animate__backInLeft");
 
                 // создаем элемент для названия задачи
                 const taskTitleElement = document.createElement('p');
@@ -72,14 +78,30 @@ function doSomethingWithData(data) {
                 taskCheckboxElement.setAttribute("id", data[i].tasks[j].id);
 
                 taskCheckboxElement.addEventListener('click', () => {
-
                     // TODO: добавить задержку, чтобы успел прогрузиться чекбокс
                     taskCheckboxElement.parentElement.remove();
-
+                
                     // удаление информации из json файла.
-                    delete data[i].tasks[j];
+                    data[i].tasks.splice(j, 1);
                     console.log(data[i].tasks);
+                
+                    // Отправка обновленных данных на сервер
+                    fetch(projectsJSON, {
+                        method: 'PUT', // или 'DELETE'
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Успех:', data);
+                    })
+                    .catch((error) => {
+                        console.error('Ошибка:', error);
+                    });
                 })
+                
 
                 // собираем это все в один див
                 taskContainer.appendChild(taskTitleElement);
@@ -95,7 +117,8 @@ function doSomethingWithData(data) {
     
     }
     // добавление задач
-
-
 }
 
+function addTask(data) {
+
+}

@@ -37,6 +37,7 @@
     --nav-background-color: #F8FAFB;
     --content-background-color: #e2e8f0;
     --task-border-color: #cbd5e1;
+    --shadow-color: rgb(0, 0, 0, 0.3);
 }
 
 .container {
@@ -67,10 +68,10 @@
     border: 0;
     background-color: var(--nav-background-color);
     transition-duration: 0.2s;
+    border-bottom: #6e6e6e solid 1px;
 }
 
 .container--navside--project-button:hover {
-    border: 0;
     background-color: #ebebeb;
     transition-duration: 0.2s;
 }
@@ -90,6 +91,7 @@
     padding-right: 20px;
     padding-left: 20px;
     background: var(--content-background-color);
+
 }
 
 .container--content--task--title {
@@ -97,21 +99,31 @@
     font-weight: 700;
     font-size: 1.3rem;
     grid-row: 1;
+    background: #FF6060;
+    margin: 0;
+    border-top-left-radius: 0.9rem;
+    border-top-right-radius: 0.9rem;
+    color: var(--nav-background-color);
 }
 
 .container--content--task--description, .container--content--task--date {
     font-family: 'SFProText-Light';
     font-weight: 300px;
     font-size: 1.2rem;
+    margin: 0;
 }
 
 .container--content--task--description {
     grid-row: 2;
+    background: white;
 }
 
 .container--content--task--date {
     font-size: 1rem;
     grid-row: 3;
+    background: white;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 .container--content--task {
@@ -121,6 +133,7 @@
     border: solid var(--task-border-color);
     border-radius: 1rem;
     margin: 5px;
+    box-shadow: 0px 12px 20px -10px var(--shadow-color);
 }
 
 .container--content--task--checkbox {
@@ -130,4 +143,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 20px;
+}
+
+.container--content--task--title, .container--content--task--description, .container--content--task--date {
+    padding: 1.4rem;
 }
