@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Working project",
+        "tasks": [
+            {
+                "id": 0,
+                "title": "Do layout for website",
+                "description": "i need to read a HTML/CSS docs",
+                "dueDate": "2024-03-21",
+                "priority": 1
+            },
+            {
+                "id": 1,
+                "title": "send work to fl",
+                "description": "write description",
+                "dueDate": "2024-03-21",
+                "priority": 2
+            }
+        ]
+    },
+    {
+        "name": "Money project",
+        "tasks": [
+            {
+                "id": 2,
+                "title": "Pay a car bill",
+                "description":"go to billing service and pay",
+                "dueDate": "2024-03-28",
+                "priority": 2
+            }
+        ]
+    }
+]

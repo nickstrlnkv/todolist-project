@@ -7,6 +7,8 @@ const navigationDiv = document.querySelector('.container--navside');
 const contentDiv = document.querySelector('.container--content');
 const containerDiv = document.querySelector('.container');
 
+
+
 fetch(projectsJSON) // замените 'file.json' на путь к вашему файлу
     .then(response => response.json())
     .then(data => {
@@ -68,6 +70,16 @@ function doSomethingWithData(data) {
                 taskCheckboxElement.classList.add('container--content--task--checkbox')
                 taskCheckboxElement.type = 'checkbox';
                 taskCheckboxElement.setAttribute("id", data[i].tasks[j].id);
+
+                taskCheckboxElement.addEventListener('click', () => {
+
+                    // TODO: добавить задержку, чтобы успел прогрузиться чекбокс
+                    taskCheckboxElement.parentElement.remove();
+
+                    // удаление информации из json файла.
+                    delete data[i].tasks[j];
+                    console.log(data[i].tasks);
+                })
 
                 // собираем это все в один див
                 taskContainer.appendChild(taskTitleElement);
